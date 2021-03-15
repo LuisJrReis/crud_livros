@@ -18,7 +18,8 @@ let livros = [{
     titulo: "O Futurista",
     descricao: "Um homem que veio do futuro em acerto de contas com seus amigos, familiares e demais pessoas do ciclo da vida dele",
     edicao: "1",
-    autor:"Stenk Frankilin"
+    autor:"Stenk Frankilin",
+    isbn: 123456
     },
 
     {
@@ -26,7 +27,8 @@ let livros = [{
     titulo: "O Invisível",
     descricao: "Ao seus 37 anos, William James, descobriu seu poder de invisibilidade, mas com um propósito, estar em áreas da inteligencia americana da area de pesquisa ",
     edicao: "1",
-    autor:"George Malor"
+    autor:"George Malor",
+    isbn: 654321
     }
 ];
 
@@ -44,7 +46,8 @@ app.post("/livros", (req, res, next) => {
         titulo: req.body.titulo,
         descricao: req.body.descricao,
         edicao: req.body.edicao,
-        autor: req.body.autor
+        autor: req.body.autor,
+        isbn: req.body.isbn
     }
     livros.push(livro);
     res.status(201).json(livro);
@@ -58,7 +61,8 @@ app.put("/livros", (req, res, next) => {
             livro.titulo = req.body.titulo,
             livro.descricao = req.body.descricao,
             livro.edicao = req.body.edicao,
-            livro.autor = req.body.autor
+            livro.autor = req.body.autor,
+            livro.isbn = req.body.isbn
         }
     });
     res.status(204).end();
@@ -76,7 +80,8 @@ app.delete("/livros", (req, res, next) => {
             livro.titulo = req.body.titulo,
             livro.descricao = req.body.descricao,
             livro.edicao = req.body.edicao,
-            livro.autor = req.body.autor
+            livro.autor = req.body.autor,
+            livro.isbn = req.body.isbn
         }
         livrosClear.push(livro);
     });
